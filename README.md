@@ -5,10 +5,10 @@ All analyses were done in Python 3.12.
 
 ## Data File Directory
 
-1. SBERT embedding file - query_embeddings.csv
-2. Semantic similarity search with query text, matched top-5 corpus texts, and similarity score - output of semantic_search.py and input of kmeans_cluster.py - semantic_search_results.csv
-3. K-means cluster assignment - output of k_means.py - clustered_queries_by_similarity.csv
-4. meta-data of top-5 similarity score, k-means cluster assignment, mapped to time-chunk and adherence, separately for BDQ and ART - input for predictive modeling - semantic_similarity_top5_{BDQ/ART}adherence.csv
+1. query_embeddings.csv: SBERT embedding file
+2. semantic_search_results.csv: Semantic similarity search with query text, matched top-5 corpus texts, and similarity score, output of semantic_search.py and input of kmeans_cluster.py
+3. clustered_queries_by_similarity.csv: K-means cluster assignment, output of kmeans_cluster.py
+4. semantic_similarity_top5_{BDQ/ART}adherence.csv: meta-data of top-5 similarity score, k-means cluster assignment, mapped to time-chunk and adherence, separately for BDQ and ART; input for predictive modeling (model_selection.py, lme_modeling.py and lme_secondary_interaction.py)
 
 ## Workflow Diagram
 ```
