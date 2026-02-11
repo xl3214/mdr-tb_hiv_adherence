@@ -3,7 +3,8 @@ This repository contains scripts and de-identified monthly counseling session no
 
 All analyses were done in Python 3.12.
 
-# Data File Directory
+## Data File Directory
+
 1. SBERT embedding file - query_embeddings.csv
 2. Semantic similarity search with query text, matched top-5 corpus texts, and similarity score - output of semantic_search.py and input of kmeans_cluster.py - semantic_search_results.csv
 3. K-means cluster assignment - output of k_means.py - clustered_queries_by_similarity.csv
