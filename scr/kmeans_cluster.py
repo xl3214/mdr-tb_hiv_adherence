@@ -5,7 +5,7 @@ Here, we have already selected k=6 as the optimial K.
 K optimization was done using a separate script ("kmeans_optimization.py").
 
 Input: Raw texts or preprocessed texts of counseling session notes
-Output: semantic_search_results.csv
+Output: clustered_queries_by_similarity.csv
 '''
 
 import pandas as pd
