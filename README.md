@@ -11,6 +11,48 @@ All analyses were done in Python 3.12.
 
 **Note on `Query Text`:** shared text has been preprocessed (lowercased; non-alphabetic characters, stopwords, and short tokens removed; lemmatized), so it reads as a string of content words rather than full sentences. Patient names and gender pronouns were manually removed prior to preprocessing.
 
+## Variable Descriptions
+
+### `semantic_similarity_top5_{ART/BDQ}adherence.csv`
+
+| Variable | Description |
+|---|---|
+| `PARTICIPANTID` | Participant identifier |
+| `VISITCODE` | Study visit code |
+| `VISITDATE` | Date of visit |
+| `row_id` | Row identifier |
+| `Query Text` | Preprocessed counseling note text (see note above) |
+| `Cluster` | K-means cluster assignment |
+| `top1_Matched Sentence` – `top5_Matched Sentence` | Top 5 corpus sentences ranked by semantic similarity to the query |
+| `top1_Similarity Score` – `top5_Similarity Score` | Cosine similarity score for each matched sentence |
+| `Chunk` | Time-chunk indicator relative to counseling session |
+| `Adherence` | Adherence outcome (ART or BDQ, per filename) |
+| `Start_Date` | Start date of the adherence interval |
+| `End_Date` | End date of the adherence interval |
+
+### `semantic_search_results.csv`
+
+| Variable | Description |
+|---|---|
+| `Query Index` | Index of the query note |
+| `Query Text` | Preprocessed counseling note text |
+| `Rank` | Rank of the matched sentence (1–5) by similarity |
+| `Matched Sentence` | Corpus sentence matched to the query |
+| `Similarity Score` | Cosine similarity score between query and matched sentence |
+
+### `query_embeddings.csv`
+
+| Variable | Description |
+|---|---|
+| `dim_0` – `dim_9` | SBERT embedding dimensions for each query |
+
+### `clustered_queries_by_similarity.csv`
+
+| Variable | Description |
+|---|---|
+| `Query Text` | Preprocessed counseling note text |
+| `Cluster` | K-means cluster assignment |
+
 ## Workflow Diagram
 ```
 Raw Counseling Session Notes (not included in this repo)
