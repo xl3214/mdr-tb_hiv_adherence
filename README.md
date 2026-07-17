@@ -3,6 +3,31 @@ This repository contains scripts and de-identified monthly counseling session no
 
 All analyses were done in Python 3.12.
 
+## Workflow Diagram
+```
+Raw Counseling Session Notes (not included in this repo)
+    ↓
+Data Preprocessing (preprocessing.py) — operates on raw notes, not reproducible from shared data
+    ↓
+BERTopic (bertopic.py)
+    ↓
+Semantic Similarity Search (semantic_search.py)
+    ↓
+    └─→ K-Means Clustering of Similarity Score (kmeans_cluster.py)
+            ↓
+Data Merging + Adherence Intervals
+    ↓
+Modeling Input Files  ← reproduction starts here with shared data
+    ↓
+    └─→ Evaluate Models (model_selection.py)
+            ↓
+Train Linear Mixed-Effects (lme_modeling.py)
+            ↓
+Assess Effect Modification of Time-Chunk to Cluster (lme_secondary_interaction.py)
+            ↓
+Interpretation
+```
+
 ## Data File Directory
 1. `query_embeddings.csv`: SBERT embedding file
 2. `semantic_search_results.csv`: Semantic similarity search with query text, matched top-5 corpus texts, and similarity score; output of `semantic_search.py` and input of `kmeans_cluster.py`
@@ -52,28 +77,3 @@ All analyses were done in Python 3.12.
 |---|---|
 | `Query Text` | Preprocessed counseling note text |
 | `Cluster` | K-means cluster assignment |
-
-## Workflow Diagram
-```
-Raw Counseling Session Notes (not included in this repo)
-    ↓
-Data Preprocessing (preprocessing.py) — operates on raw notes, not reproducible from shared data
-    ↓
-BERTopic (bertopic.py)
-    ↓
-Semantic Similarity Search (semantic_search.py)
-    ↓
-    └─→ K-Means Clustering of Similarity Score (kmeans_cluster.py)
-            ↓
-Data Merging + Adherence Intervals
-    ↓
-Modeling Input Files  ← reproduction starts here with shared data
-    ↓
-    └─→ Evaluate Models (model_selection.py)
-            ↓
-Train Linear Mixed-Effects (lme_modeling.py)
-            ↓
-Assess Effect Modification of Time-Chunk to Cluster (lme_secondary_interaction.py)
-            ↓
-Interpretation
-```
