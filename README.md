@@ -69,7 +69,7 @@ Interpretation
 
 | Variable | Description |
 |---|---|
-| `dim_0` – `dim_9` | SBERT embedding dimensions for each query |
+| `dim_0` – `dim_383` | SBERT embedding dimensions for each query |
 
 ### `clustered_queries_by_similarity.csv`
 
